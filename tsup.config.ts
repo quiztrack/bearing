@@ -6,7 +6,8 @@ const tsupConfig = defineConfig({
     vanillaExtractPlugin() as unknown as any
   ],
   entry: [
-    "./src/index.ts"
+    "./src/index.ts",
+    "./src/kit/index.ts",
   ],
   external: ["@vanilla-extract/css"],
   format: ["esm"],
