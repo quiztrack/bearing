@@ -12,6 +12,8 @@ type Story = StoryObj<DialogProps>;
 export default meta;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    on: true
+  },
   render: props => <Dialog {...props} />,
 };
