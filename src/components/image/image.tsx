@@ -8,9 +8,7 @@ type ImageProps = {
 function Image(props: ImageProps) {
   const { className, fallback } = props;
 
-  return (
-    <img className={clnc([className])} />
-  );
+  return <img className={clnc([className])} />;
 }
 
 export { type ImageProps, Image };

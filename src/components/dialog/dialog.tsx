@@ -2,49 +2,79 @@ import { Dialog as HeadlessUIDialog, Transition } from "@headlessui/react";
 import { Fragment, ReactNode } from "react";
 import { Message } from "./message";
 import { Action } from "./action";
+import {
+  backdropBaseStyle,
+  backdropEnterFromStyle,
+  backdropEnterStyle,
+  backdropEnterToStyle,
+  backdropLeaveStyle,
+  backdropLeaveFromStyle,
+  backdropLeaveToStyle,
+  dialogBaseStyle,
+  dialogPanelBaseStyle,
+  dialogPanelBorderStyle,
+  panelEnterFromStyle,
+  panelEnterStyle,
+  panelEnterToStyle,
+  panelLeaveStyle,
+  panelLeaveFromStyle,
+  panelLeaveToStyle,
+  dialogPanelStyle,
+  dialogPanelTitleStyle,
+  dialogPanelTextBorderStyle,
+} from "./style.css";
+import { UseIcon } from "./use-icon";
+// import { clnc } from "@eqpoqpe/classname-utils";
 
 type DialogProps = {
-  on?: boolean;
+  type?: "tips" | "help" | "question" | "none";
+  on: boolean;
   title?: string;
   contents: ReactNode[];
+  icon?: ReactNode;
 };
 
 function Dialog(props: DialogProps) {
+  const { on, contents, title, type, icon } = props;
+
   return (
-    <Transition appear show={true} as={Fragment}>
-      <HeadlessUIDialog as="div" className="relative z-10" onClose={() => { }}>
+    <Transition appear show={on} as={Fragment}>
+      <HeadlessUIDialog as="div" className={dialogBaseStyle} onClose={() => {}}>
         <Transition.Child
           as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          enter={backdropEnterStyle}
+          enterFrom={backdropEnterFromStyle}
+          enterTo={backdropEnterToStyle}
+          leave={backdropLeaveStyle}
+          leaveFrom={backdropLeaveFromStyle}
+          leaveTo={backdropLeaveToStyle}
         >
-          <div className="fixed inset-0 bg-black/25" />
+          <div className={backdropBaseStyle}></div>
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
+        <div className={dialogPanelBaseStyle}>
+          <div className={dialogPanelBorderStyle}>
             <Transition.Child
               as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
+              enter={panelEnterStyle}
+              enterFrom={panelEnterFromStyle}
+              enterTo={panelEnterToStyle}
+              leave={panelLeaveStyle}
+              leaveFrom={panelLeaveFromStyle}
+              leaveTo={panelLeaveToStyle}
             >
-              <HeadlessUIDialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                <HeadlessUIDialog.Title
-                  as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
-                >
-                  Payment successful
-                </HeadlessUIDialog.Title>
+              <HeadlessUIDialog.Panel className={dialogPanelStyle}>
+                <UseIcon type={type} icon={icon} />
+                <div className={dialogPanelTextBorderStyle}>
+                  <HeadlessUIDialog.Title
+                    as="h3"
+                    className={dialogPanelTitleStyle}
+                  >
+                    {title}
+                  </HeadlessUIDialog.Title>
+                  <Message contents={contents} />
+                </div>
 
-                <Message />
                 <Action />
               </HeadlessUIDialog.Panel>
             </Transition.Child>

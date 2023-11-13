@@ -1,7 +1,5 @@
 function Action() {
-  return (
-    <div></div>
-  );
+  return <div></div>;
 }
 
 export { Action };

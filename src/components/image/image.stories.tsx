@@ -13,7 +13,7 @@ export default meta;
 
 export const Default: Story = {
   args: {
-    fallback: <div>loading...</div>
+    fallback: <div>loading...</div>,
   },
   render: props => <Image {...props} />,
 };
