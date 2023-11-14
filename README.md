@@ -17,8 +17,6 @@
     <br />
   </sup>
   <br />
-  <br />
-  <br />
   <pre>npm i <a href="https://www.npmjs.com/package/@quiztrack/zenui">Zenui</a></pre>
   <br />
   <br />
