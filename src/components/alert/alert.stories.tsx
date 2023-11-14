@@ -31,7 +31,7 @@ export const Basic: Story = {
           margin: "10px 0px",
         }}
       >
-        <p style={{ fontSize: "13px", margin: "0px 5px" }}>We try, we go</p>
+        <p style={{ fontSize: "13px", margin: "0px 5px" }}>Try click</p>
         "<HandRaisedIcon width={17} height={17} color="#999" />" or "
         <ArrowPathIcon width={17} height={17} color="#999" />" and go.
       </div>,
@@ -55,7 +55,7 @@ export const Basic: Story = {
     disabledCancel: false,
     disabledConfirm: false,
     onClose(result) {
-      console.log(result);
+      const { additional, backdrop, cancel, confirm } = result;
     },
   },
   render: props => <Alert {...props} />,

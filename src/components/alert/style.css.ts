@@ -181,7 +181,7 @@ const textType = styleVariants<{
     color: "#007AFF",
   },
   warn: {
-    color: "",
+    color: "#f5a623",
   },
 });
 
