@@ -1,12 +1,22 @@
+import { Transition } from "@headlessui/react";
 import {
   ImgHTMLAttributes,
   ReactNode,
-  forwardRef,
-  useLayoutEffect,
+  useEffect,
+  useMemo,
+  useRef,
   useState,
 } from "react";
-
-const ComponentName = "Image";
+import {
+  imageEnterFromStyle,
+  imageEnterStyle,
+  imageEnterToStyle,
+  imageLeaveFromStyle,
+  imageLeaveStyle,
+  imageLeaveToStyle,
+} from "./style.css";
+import { RenderImageElement } from "./render-image-element";
+import { FallbackBorder } from "./fallback-border";
 
 type ImageProps = {
   src: string;
@@ -17,35 +27,41 @@ type ImageProps = {
 } & ImgHTMLAttributes<HTMLImageElement>;
 type ImageLoadStatus = "loading" | "loaded" | "error";
 
-const Image = forwardRef<HTMLImageElement, ImageProps>(function (props, ref) {
-  const { fallback, src, ...moreProps } = props;
-  const [imageLoadStatus, setImageLoadStatus] =
+function Image(props: ImageProps) {
+  const { fallback, ...moreProps } = props;
+  const [sourceLoadStatus, setSourceLoadStatus] =
     useState<ImageLoadStatus>("loading");
-  const handleImg = async () => {
-    const image = new window.Image();
+  const renderImageElement = (
+    <RenderImageElement
+      {...moreProps}
+      onDecode={() => {
+        setSourceLoadStatus("loaded");
+      }}
+      onError={() => {
+        setSourceLoadStatus("error");
+      }}
+    />
+  );
 
-    image.onerror = () => setImageLoadStatus("error");
-    image.src = src;
-
-    try {
-      await image.decode();
-      setImageLoadStatus("loaded");
-    } catch (error) {
-      setImageLoadStatus("error");
-    }
-  };
-
-  useLayoutEffect(() => {
-    handleImg();
-  }, []);
-
-  if (imageLoadStatus === "loading" && fallback) {
-    return fallback;
-  } else if (imageLoadStatus === "loaded") {
-    return <img {...moreProps} src={src} ref={ref} />;
-  }
-});
-
-Image.displayName = ComponentName;
+  return (
+    <div>
+      {sourceLoadStatus === "loading" && (
+        <FallbackBorder>{fallback}</FallbackBorder>
+      )}
+      <Transition
+        appear={true}
+        show={sourceLoadStatus === "loaded"}
+        enter={imageEnterStyle}
+        enterFrom={imageEnterFromStyle}
+        enterTo={imageEnterToStyle}
+        leave={imageLeaveStyle}
+        leaveFrom={imageLeaveFromStyle}
+        leaveTo={imageLeaveToStyle}
+      >
+        {renderImageElement}
+      </Transition>
+    </div>
+  );
+}
 
 export { Image, type ImageProps };

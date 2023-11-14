@@ -81,7 +81,7 @@ const panelEnterStyle = style({
 
 const panelEnterFromStyle = style({
   opacity: 0,
-  transform: "scale(1.05)",
+  transform: "scale(1.09)",
 });
 
 const panelEnterToStyle = style({
