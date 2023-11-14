@@ -1,16 +1,16 @@
-import { DialogProps } from "./dialog";
+import { AlertProps } from "./alert";
 import {
   dialogPanelMessageBase,
   dialogPanelMessageContentStyle,
 } from "./style.css";
 import { isValidElement } from "react";
 
-type MessageProps = Pick<DialogProps, "contents">;
+type MessageProps = Pick<AlertProps, "contents">;
 
 function Message({ contents }: MessageProps) {
   return (
     <div className={dialogPanelMessageBase}>
-      {contents.map(content => {
+      {contents?.map(content => {
         if (isValidElement(content)) {
           return content;
         } else {

@@ -1,16 +1,16 @@
 import { PropsWithChildren } from "react";
-import { DialogProps } from ".";
+import { AlertProps } from ".";
 import {
   UserGroupIcon,
   QuestionMarkCircleIcon,
   ExclamationCircleIcon,
 } from "@heroicons/react/24/solid";
-import { dialogIconBorderStyle } from "./style.css";
+import { alertIconBorderStyle } from "./style.css";
 
-type UseIconProps = Pick<DialogProps, "type" | "icon">;
+type UseIconProps = Pick<AlertProps, "type" | "icon">;
 
 const IconBorder = ({ children }: PropsWithChildren) => (
-  <div className={dialogIconBorderStyle}>{children}</div>
+  <div className={alertIconBorderStyle}>{children}</div>
 );
 
 function UseIcon({ type, icon }: UseIconProps) {

@@ -16,66 +16,6 @@ const dialogPanelBaseStyle = style({
   overflowY: "hidden",
 });
 
-const dialogPanelBorderStyle = style({
-  display: "flex",
-  minHeight: "100%",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "4px",
-  textAlign: "center",
-});
-
-const dialogPanelStyle = style({
-  width: "100%",
-  maxWidth: "270px",
-  backgroundColor: "#ffffffD1",
-  backgroundBlendMode: "color-dodge",
-  borderRadius: "14px",
-  boxSizing: "border-box",
-  backdropFilter: "blur(40px)",
-  paddingTop: "19px",
-  paddingBottom: "0px",
-});
-
-const dialogPanelTitleStyle = style({
-  color: "#000000",
-  alignSelf: "stretch",
-  textAlign: "center",
-  fontFeatureSettings: "'clig' off, 'liga' off",
-  fontFamily: "SF Pro",
-  fontSize: "17px",
-  fontStyle: "normal",
-  fontWeight: "590",
-  lineHeight: "22px",
-  letterSpacing: "-0.4px",
-  userSelect: "none",
-});
-
-const dialogPanelMessageBase = style({
-  marginTop: "2px",
-  marginBottom: "2px",
-});
-
-const dialogPanelMessageContentStyle = style({
-  color: "#000000",
-  alignSelf: "stretch",
-  textAlign: "center",
-  fontFeatureSettings: "'clig' off, 'liga' off",
-  fontFamily: "SF Pro",
-  fontSize: "13px",
-  fontStyle: "normal",
-  fontWeight: "400",
-  lineHeight: "18px",
-  letterSpacing: "-0.3px",
-});
-
-const dialogPanelTextBorderStyle = style({
-  boxSizing: "border-box",
-  paddingLeft: "16px",
-  paddingRight: "16px",
-  paddingBottom: "15px",
-});
-
 const backdropEnterStyle = style({
   transitionTimingFunction: "ease-out",
   transitionDuration: "300ms",
@@ -102,63 +42,62 @@ const backdropLeaveToStyle = style({
   opacity: 0,
 });
 
-const panelEnterStyle = style({
-  transitionTimingFunction: "ease-out",
-  transitionDuration: "300ms",
-});
-
-const panelEnterFromStyle = style({
-  opacity: 0,
-  transform: "scale(1.05)",
-});
-const panelEnterToStyle = style({
-  opacity: 100,
-  transform: "scale(1)",
-});
-
-const panelLeaveStyle = style({
-  transitionTimingFunction: "ease-in",
-  transitionDuration: "200ms",
-});
-
-const panelLeaveFromStyle = style({
-  opacity: 100,
-  transform: "scale(1)",
-});
-
-const panelLeaveToStyle = style({
-  opacity: 0,
-  transform: "scale(1)",
-});
-
 const dialogIconBorderStyle = style({
   paddingTop: "20px",
   paddingLeft: "0px",
   paddingRight: "0px",
-  paddingBottom: "20px",
+  paddingBottom: "14px",
+});
+
+const dialogActionBaseStyle = style({
+  width: "100%",
+  background: "transparent",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+});
+
+const dialogActionButtonStyle = style({
+  width: "100%",
+  color: "#007AFF",
+  background: "transparent",
+  fontFamily: "SF PRO",
+  fontFeatureSettings: "'clig' off, 'liga' off",
+  fontSize: "17px",
+  fontStyle: "normal",
+  textAlign: "center",
+  lineHeight: "22px",
+  letterSpacing: "-0.4px",
+  paddingTop: "11px",
+  paddingBottom: "11px",
+  outline: "none",
+  border: "none",
+  borderTopWidth: "1px",
+  borderTopStyle: "solid",
+  borderColor: "#3C3C4321",
+});
+
+const dialogActionConfirmButtonStyle = style({
+  fontWeight: "590",
+});
+
+const dialogActionCancelButtonStyle = style({
+  fontWeight: "400",
 });
 
 export {
   dialogBaseStyle,
   backdropBaseStyle,
   dialogPanelBaseStyle,
-  dialogPanelBorderStyle,
-  dialogPanelStyle,
-  dialogPanelTitleStyle,
   backdropEnterStyle,
   backdropEnterFromStyle,
   backdropEnterToStyle,
   backdropLeaveStyle,
   backdropLeaveFromStyle,
   backdropLeaveToStyle,
-  panelEnterStyle,
-  panelEnterFromStyle,
-  panelEnterToStyle,
-  panelLeaveFromStyle,
-  panelLeaveStyle,
-  panelLeaveToStyle,
-  dialogPanelMessageBase,
-  dialogPanelMessageContentStyle,
-  dialogPanelTextBorderStyle,
   dialogIconBorderStyle,
+  dialogActionBaseStyle,
+  dialogActionButtonStyle,
+  dialogActionConfirmButtonStyle,
+  dialogActionCancelButtonStyle,
 };

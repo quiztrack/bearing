@@ -1,7 +1,5 @@
 import { Dialog as HeadlessUIDialog, Transition } from "@headlessui/react";
-import { Fragment, ReactNode } from "react";
-import { Message } from "./message";
-import { Action } from "./action";
+import { Fragment, PropsWithChildren } from "react";
 import {
   backdropBaseStyle,
   backdropEnterFromStyle,
@@ -12,30 +10,14 @@ import {
   backdropLeaveToStyle,
   dialogBaseStyle,
   dialogPanelBaseStyle,
-  dialogPanelBorderStyle,
-  panelEnterFromStyle,
-  panelEnterStyle,
-  panelEnterToStyle,
-  panelLeaveStyle,
-  panelLeaveFromStyle,
-  panelLeaveToStyle,
-  dialogPanelStyle,
-  dialogPanelTitleStyle,
-  dialogPanelTextBorderStyle,
 } from "./style.css";
-import { UseIcon } from "./use-icon";
-// import { clnc } from "@eqpoqpe/classname-utils";
 
-type DialogProps = {
-  type?: "tips" | "help" | "question" | "none";
+type DialogProps = PropsWithChildren<{
   on: boolean;
-  title?: string;
-  contents: ReactNode[];
-  icon?: ReactNode;
-};
+}>;
 
 function Dialog(props: DialogProps) {
-  const { on, contents, title, type, icon } = props;
+  const { on, children } = props;
 
   return (
     <Transition appear show={on} as={Fragment}>
@@ -52,34 +34,7 @@ function Dialog(props: DialogProps) {
           <div className={backdropBaseStyle}></div>
         </Transition.Child>
 
-        <div className={dialogPanelBaseStyle}>
-          <div className={dialogPanelBorderStyle}>
-            <Transition.Child
-              as={Fragment}
-              enter={panelEnterStyle}
-              enterFrom={panelEnterFromStyle}
-              enterTo={panelEnterToStyle}
-              leave={panelLeaveStyle}
-              leaveFrom={panelLeaveFromStyle}
-              leaveTo={panelLeaveToStyle}
-            >
-              <HeadlessUIDialog.Panel className={dialogPanelStyle}>
-                <UseIcon type={type} icon={icon} />
-                <div className={dialogPanelTextBorderStyle}>
-                  <HeadlessUIDialog.Title
-                    as="h3"
-                    className={dialogPanelTitleStyle}
-                  >
-                    {title}
-                  </HeadlessUIDialog.Title>
-                  <Message contents={contents} />
-                </div>
-
-                <Action />
-              </HeadlessUIDialog.Panel>
-            </Transition.Child>
-          </div>
-        </div>
+        <div className={dialogPanelBaseStyle}>{children}</div>
       </HeadlessUIDialog>
     </Transition>
   );
