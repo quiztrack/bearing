@@ -12,21 +12,17 @@ type MessageProps = Pick<AlertProps, "contents" | "userSelect">;
 
 function Message({ contents, userSelect }: MessageProps) {
   return (
-    <div className={dialogPanelMessageBase}>
+    <div
+      className={clnc([
+        dialogPanelMessageBase,
+        userSelect === "select-text" ? selectText : selectNone,
+      ])}
+    >
       {contents?.map(content => {
         if (isValidElement(content)) {
           return content;
         } else {
-          return (
-            <p
-              className={clnc([
-                dialogPanelMessageContentStyle,
-                userSelect === "select-text" ? selectText : selectNone,
-              ])}
-            >
-              {content}
-            </p>
-          );
+          return <p className={dialogPanelMessageContentStyle}>{content}</p>;
         }
       })}
     </div>

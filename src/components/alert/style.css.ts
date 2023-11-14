@@ -115,6 +115,7 @@ const alertActionButtonStyle = style({
   color: "#007AFF",
   background: "transparent",
   display: "flex",
+  flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
   fontFamily: "S007AFFF PRO",

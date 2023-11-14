@@ -1,14 +1,54 @@
-import { HTMLAttributes, ReactNode } from "react";
-import { clnc } from "@eqpoqpe/classname-utils";
+import {
+  ImgHTMLAttributes,
+  ReactNode,
+  forwardRef,
+  useLayoutEffect,
+  useState,
+} from "react";
+
+const ComponentName = "Image";
 
 type ImageProps = {
+  src: string;
+  /**
+   * if set fallback, component will default enabled display after at loaded
+   */
   fallback?: ReactNode;
-} & HTMLAttributes<HTMLImageElement>;
+} & ImgHTMLAttributes<HTMLImageElement>;
 
-function Image(props: ImageProps) {
-  const { className, fallback } = props;
+type ImageLoadStatus = "loading" | "loaded" | "error";
 
-  return <img className={clnc([className])} />;
-}
+const Image = forwardRef<HTMLImageElement, ImageProps>(function (props, ref) {
+  const { fallback, src, ...moreProps } = props;
+  const [imageLoadStatus, setImageLoadStatus] =
+    useState<ImageLoadStatus>("loading");
+  const handleImg = async () => {
+    const image = new window.Image();
 
-export { type ImageProps, Image };
+    image.onerror = () => setImageLoadStatus("error");
+    image.src = src;
+
+    try {
+      await image.decode();
+      setImageLoadStatus("loaded");
+    } catch (error) {
+      setImageLoadStatus("error");
+    }
+  };
+
+  useLayoutEffect(() => {
+    handleImg();
+  }, []);
+
+  if (imageLoadStatus === "loading" && fallback) {
+    return fallback;
+  }
+
+  if (imageLoadStatus === "loaded") {
+    return <img {...moreProps} src={src} ref={ref} />;
+  }
+});
+
+Image.displayName = ComponentName;
+
+export { Image, type ImageProps };
