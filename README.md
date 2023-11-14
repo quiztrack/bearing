@@ -13,7 +13,9 @@
   </h1>
   <sup>
     <br />
-    Collection of essential <a href="https://headlessui.com/">Headless UI</a>.</em>
+    Collection of essential <a href="https://headlessui.com/">Headless UI ✨</a>.
+    <br />
+    <em>"make something out of nothing."</em>
     <br />
   </sup>
   <br />
