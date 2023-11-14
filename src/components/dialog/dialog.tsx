@@ -11,17 +11,28 @@ import {
   dialogBaseStyle,
   dialogPanelBaseStyle,
 } from "./style.css";
+import { clnc } from "@eqpoqpe/classname-utils";
 
 type DialogProps = PropsWithChildren<{
   on: boolean;
+  backdrop?: boolean;
+  backdropBackdround?: string;
+  onClose?: () => void;
 }>;
 
 function Dialog(props: DialogProps) {
-  const { on, children } = props;
+  const { on, children, backdrop, backdropBackdround, onClose } = props;
+  const handleBackdropClose = () => {
+    if (backdrop) onClose?.();
+  };
 
   return (
     <Transition appear show={on} as={Fragment}>
-      <HeadlessUIDialog as="div" className={dialogBaseStyle} onClose={() => {}}>
+      <HeadlessUIDialog
+        as="div"
+        className={dialogBaseStyle}
+        onClose={handleBackdropClose}
+      >
         <Transition.Child
           as={Fragment}
           enter={backdropEnterStyle}
@@ -31,7 +42,11 @@ function Dialog(props: DialogProps) {
           leaveFrom={backdropLeaveFromStyle}
           leaveTo={backdropLeaveToStyle}
         >
-          <div className={backdropBaseStyle}></div>
+          <div
+            className={clnc([
+              backdropBackdround ? backdropBackdround : backdropBaseStyle,
+            ])}
+          ></div>
         </Transition.Child>
 
         <div className={dialogPanelBaseStyle}>{children}</div>

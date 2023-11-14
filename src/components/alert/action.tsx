@@ -26,6 +26,9 @@ function Action(props: ActionProps) {
         <button type="button" className={alertActionButtonStyle}>
           Action
         </button>
+        <button type="button" className={alertActionButtonStyle}>
+          Action
+        </button>
       </div>
     );
   } else {

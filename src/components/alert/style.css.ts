@@ -1,21 +1,5 @@
 import { style } from "@vanilla-extract/css";
 
-const dialogBaseStyle = style({
-  position: "relative",
-});
-
-const backdropBaseStyle = style({
-  backgroundColor: "#00000099",
-  position: "fixed",
-  inset: "0",
-});
-
-const dialogPanelBaseStyle = style({
-  position: "fixed",
-  inset: "0",
-  overflowY: "hidden",
-});
-
 const alertPanelBorderStyle = style({
   display: "flex",
   minHeight: "100%",
@@ -36,6 +20,7 @@ const alertPanelStyle = style({
   paddingTop: "19px",
   paddingBottom: "0px",
   overflowX: "hidden",
+  boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
 });
 
 const alertPanelTitleStyle = style({
@@ -49,7 +34,6 @@ const alertPanelTitleStyle = style({
   fontWeight: "590",
   lineHeight: "22px",
   letterSpacing: "-0.4px",
-  userSelect: "none",
 });
 
 const dialogPanelMessageBase = style({
@@ -77,32 +61,6 @@ const alertPanelTextBorderStyle = style({
   paddingBottom: "15px",
 });
 
-const backdropEnterStyle = style({
-  transitionTimingFunction: "ease-out",
-  transitionDuration: "300ms",
-});
-
-const backdropEnterFromStyle = style({
-  opacity: 0,
-});
-
-const backdropEnterToStyle = style({
-  opacity: 1,
-});
-
-const backdropLeaveStyle = style({
-  transitionTimingFunction: "ease-in",
-  transitionDuration: "200ms",
-});
-
-const backdropLeaveFromStyle = style({
-  opacity: 1,
-});
-
-const backdropLeaveToStyle = style({
-  opacity: 0,
-});
-
 const panelEnterStyle = style({
   transitionTimingFunction: "ease-out",
   transitionDuration: "300ms",
@@ -112,6 +70,7 @@ const panelEnterFromStyle = style({
   opacity: 0,
   transform: "scale(1.05)",
 });
+
 const panelEnterToStyle = style({
   opacity: 100,
   transform: "scale(1)",
@@ -165,29 +124,25 @@ const alertActionButtonStyle = style({
   borderTopWidth: "1px",
   borderTopStyle: "solid",
   borderColor: "#3C3C4321",
+  userSelect: "none",
 });
 
 const alertActionConfirmButtonStyle = style({
   fontWeight: "590",
 });
 
-const dialogActionCancelButtonStyle = style({
-  fontWeight: "400",
+const selectText = style({
+  userSelect: "text",
+});
+
+const selectNone = style({
+  userSelect: "none",
 });
 
 export {
-  dialogBaseStyle,
-  backdropBaseStyle,
-  dialogPanelBaseStyle,
   alertPanelBorderStyle,
   alertPanelStyle,
   alertPanelTitleStyle,
-  backdropEnterStyle,
-  backdropEnterFromStyle,
-  backdropEnterToStyle,
-  backdropLeaveStyle,
-  backdropLeaveFromStyle,
-  backdropLeaveToStyle,
   panelEnterStyle,
   panelEnterFromStyle,
   panelEnterToStyle,
@@ -201,5 +156,6 @@ export {
   alertActionBaseStyle,
   alertActionButtonStyle,
   alertActionConfirmButtonStyle,
-  dialogActionCancelButtonStyle,
+  selectText,
+  selectNone,
 };

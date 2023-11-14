@@ -42,49 +42,6 @@ const backdropLeaveToStyle = style({
   opacity: 0,
 });
 
-const dialogIconBorderStyle = style({
-  paddingTop: "20px",
-  paddingLeft: "0px",
-  paddingRight: "0px",
-  paddingBottom: "14px",
-});
-
-const dialogActionBaseStyle = style({
-  width: "100%",
-  background: "transparent",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-});
-
-const dialogActionButtonStyle = style({
-  width: "100%",
-  color: "#007AFF",
-  background: "transparent",
-  fontFamily: "SF PRO",
-  fontFeatureSettings: "'clig' off, 'liga' off",
-  fontSize: "17px",
-  fontStyle: "normal",
-  textAlign: "center",
-  lineHeight: "22px",
-  letterSpacing: "-0.4px",
-  paddingTop: "11px",
-  paddingBottom: "11px",
-  outline: "none",
-  border: "none",
-  borderTopWidth: "1px",
-  borderTopStyle: "solid",
-  borderColor: "#3C3C4321",
-});
-
-const dialogActionConfirmButtonStyle = style({
-  fontWeight: "590",
-});
-
-const dialogActionCancelButtonStyle = style({
-  fontWeight: "400",
-});
-
 export {
   dialogBaseStyle,
   backdropBaseStyle,
@@ -95,9 +52,4 @@ export {
   backdropLeaveStyle,
   backdropLeaveFromStyle,
   backdropLeaveToStyle,
-  dialogIconBorderStyle,
-  dialogActionBaseStyle,
-  dialogActionButtonStyle,
-  dialogActionConfirmButtonStyle,
-  dialogActionCancelButtonStyle,
 };

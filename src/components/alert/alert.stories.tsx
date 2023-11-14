@@ -16,6 +16,7 @@ export const Default: Story = {
     on: true,
     title: "A Short Title Is Best",
     contents: ["A message should be a short, complete sentence."],
+    // backdropBackdround: "--"
   },
   render: props => <Alert {...props} />,
 };
