@@ -12,7 +12,6 @@ const alertPanelBorderStyle = style({
 const alertPanelBounderStyle = style({
   width: "100%",
   minHeight: "100%",
-  height: "fit-content",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -24,8 +23,7 @@ const alertPanelBounderStyle = style({
 const alertPanelStyle = style({
   width: "100%",
   maxWidth: "270px",
-  // height: "fit-content",
-  // maxHeight: "fit-content",
+  height: "fit-content",
   backgroundColor: "#ffffffD1",
   backgroundBlendMode: "color-dodge",
   borderRadius: "14px",
@@ -33,8 +31,8 @@ const alertPanelStyle = style({
   backdropFilter: "blur(40px)",
   paddingTop: "19px",
   paddingBottom: "0px",
-  overflowX: "hidden",
   boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+  overflowX: "hidden",
   overflowY: "hidden",
 });
 

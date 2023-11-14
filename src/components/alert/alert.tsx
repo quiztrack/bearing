@@ -13,7 +13,7 @@ import {
   panelLeaveToStyle,
   selectNone,
 } from "./style.css";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Dialog, DialogProps } from "../dialog";
 import { UseIcon } from "./use-icon";
 import { Action } from "./action";
@@ -51,8 +51,6 @@ type AlertProps = {
   disabledAdditional?: boolean;
   onClose?: (result: AlertSuccessCallbackResult) => void;
 } & Omit<DialogProps, "children" | "onClose">;
-
-// alert({ success(result) {} });
 
 function Alert(props: AlertProps) {
   const {

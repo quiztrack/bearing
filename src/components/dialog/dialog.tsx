@@ -46,6 +46,7 @@ function Dialog(props: DialogProps) {
             className={clnc([
               backdropBackdround ? backdropBackdround : backdropBaseStyle,
             ])}
+            aria-hidden="true"
           ></div>
         </Transition.Child>
 

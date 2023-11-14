@@ -31,7 +31,7 @@ export const Basic: Story = {
           margin: "10px 0px",
         }}
       >
-        <p style={{ fontSize: "13px", margin: "0px 5px" }}>Try click</p>
+        <p style={{ fontSize: "13px", margin: "0px 5px" }}>Try press</p>
         "<HandRaisedIcon width={17} height={17} color="#999" />" or "
         <ArrowPathIcon width={17} height={17} color="#999" />" and go.
       </div>,
@@ -40,11 +40,7 @@ export const Basic: Story = {
     backdrop: true,
     additionalText: <>Abort</>,
     cancelText: "Cancel",
-    confirmText: (
-      <>
-        <ArrowPathIcon width={22} height={22} />
-      </>
-    ),
+    confirmText: "Confirm",
     showAdditional: true,
     showCancel: true,
     additionalType: "faild",
@@ -115,7 +111,7 @@ export const Scrolling: Story = {
           margin: "10px 0px",
         }}
       >
-        <p style={{ fontSize: "13px", margin: "0px 5px" }}>We try, we go</p>
+        <p style={{ fontSize: "13px", margin: "0px 5px" }}>Try press</p>
         "<HandRaisedIcon width={17} height={17} color="#999" />" or "
         <ArrowPathIcon width={17} height={17} color="#999" />" and go.
       </div>,
@@ -135,11 +131,7 @@ export const Scrolling: Story = {
     backdropBackdround: "",
     additionalText: <>Abort</>,
     cancelText: "Cancel",
-    confirmText: (
-      <>
-        <ArrowPathIcon width={22} height={22} />
-      </>
-    ),
+    confirmText: "Confirm",
     showAdditional: true,
     showCancel: true,
     additionalType: "faild",
