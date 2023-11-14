@@ -16,7 +16,15 @@ export const Default: Story = {
     on: true,
     title: "A Short Title Is Best",
     contents: ["A message should be a short, complete sentence."],
-    // backdropBackdround: "--"
+    // backdropBackdround: "--",
+    additionalText: "Action",
+    cancelText: "Action",
+    confirmText: "Action",
+    showAdditional: true,
+    showCancel: true,
+    additionalType: "faild",
+    cancelType: "success",
+    confirmType: "success",
   },
   render: props => <Alert {...props} />,
 };

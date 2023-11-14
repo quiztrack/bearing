@@ -131,6 +131,14 @@ const alertActionConfirmButtonStyle = style({
   fontWeight: "590",
 });
 
+const alertActionCancelButtonStyle = style({
+  fontWeight: "400",
+});
+
+const alertActionAdditionalButtonStyle = style({
+  fontWeight: "400",
+});
+
 const selectText = style({
   userSelect: "text",
 });
@@ -156,6 +164,8 @@ export {
   alertActionBaseStyle,
   alertActionButtonStyle,
   alertActionConfirmButtonStyle,
+  alertActionCancelButtonStyle,
+  alertActionAdditionalButtonStyle,
   selectText,
   selectNone,
 };

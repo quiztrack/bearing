@@ -18,6 +18,7 @@ import { UseIcon } from "./use-icon";
 import { Action } from "./action";
 import { Message } from "./message";
 import { clnc } from "@eqpoqpe/classname-utils";
+import { StatusType } from "../types";
 
 type AlertProps = {
   type?: "tips" | "help" | "question" | "none";
@@ -26,6 +27,14 @@ type AlertProps = {
   title?: string;
   contents?: ReactNode[];
   userSelect?: "select-none" | "select-text";
+  confirmText?: ReactNode;
+  cancelText?: ReactNode;
+  additionalText?: ReactNode;
+  showCancel?: boolean;
+  showAdditional?: boolean;
+  confirmType?: StatusType;
+  cancelType?: StatusType;
+  additionalType?: StatusType;
 } & Omit<DialogProps, "children">;
 
 function Alert(props: AlertProps) {
@@ -37,6 +46,14 @@ function Alert(props: AlertProps) {
     disturb = true,
     userSelect,
     onClose,
+    additionalText,
+    additionalType,
+    cancelText,
+    cancelType,
+    confirmText,
+    confirmType,
+    showAdditional,
+    showCancel,
     ...moreProps
   } = props;
 
@@ -65,7 +82,17 @@ function Alert(props: AlertProps) {
               <Message contents={contents} />
             </div>
 
-            <Action disturb={disturb} />
+            <Action
+              disturb={disturb}
+              additionalText={additionalText}
+              additionalType={additionalType}
+              cancelText={cancelText}
+              cancelType={cancelType}
+              confirmText={confirmText}
+              confirmType={cancelType}
+              showAdditional={showAdditional}
+              showCancel={showCancel}
+            />
           </HeadlessUIDialog.Panel>
         </Transition.Child>
       </div>
