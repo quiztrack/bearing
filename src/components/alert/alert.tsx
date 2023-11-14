@@ -1,6 +1,7 @@
 import { Transition, Dialog as HeadlessUIDialog } from "@headlessui/react";
 import {
   alertPanelBorderStyle,
+  alertPanelBounderStyle,
   alertPanelStyle,
   alertPanelTextBorderStyle,
   alertPanelTitleStyle,
@@ -12,14 +13,24 @@ import {
   panelLeaveToStyle,
   selectNone,
 } from "./style.css";
-import { Fragment, ReactNode } from "react";
+import { ReactNode } from "react";
 import { Dialog, DialogProps } from "../dialog";
 import { UseIcon } from "./use-icon";
 import { Action } from "./action";
 import { Message } from "./message";
 import { clnc } from "@eqpoqpe/classname-utils";
-import { StatusType } from "../types";
+import {
+  DialogBaseFaildCallbackReason,
+  DialogBaseSuccessCallbackResult,
+  StatusType,
+} from "../types";
 
+type AlertSuccessCallbackResult = {
+  confirm: boolean;
+  cancel: boolean;
+  additional: boolean;
+} & DialogBaseSuccessCallbackResult;
+type AlertFailCallbackReason = {} & DialogBaseFaildCallbackReason;
 type AlertProps = {
   type?: "tips" | "help" | "question" | "none";
   disturb?: boolean;
@@ -35,7 +46,13 @@ type AlertProps = {
   confirmType?: StatusType;
   cancelType?: StatusType;
   additionalType?: StatusType;
-} & Omit<DialogProps, "children">;
+  disabledConfirm?: boolean;
+  disabledCancel?: boolean;
+  disabledAdditional?: boolean;
+  onClose?: (result: AlertSuccessCallbackResult) => void;
+} & Omit<DialogProps, "children" | "onClose">;
+
+// alert({ success(result) {} });
 
 function Alert(props: AlertProps) {
   const {
@@ -54,21 +71,33 @@ function Alert(props: AlertProps) {
     confirmType,
     showAdditional,
     showCancel,
+    disabledConfirm,
+    disabledAdditional,
+    disabledCancel,
     ...moreProps
   } = props;
+  const handleBackdropClose = () => {
+    onClose?.({
+      additional: false,
+      backdrop: true,
+      cancel: false,
+      confirm: false,
+    });
+  };
 
   return (
-    <Dialog {...moreProps} onClose={onClose}>
-      <div className={alertPanelBorderStyle}>
-        <Transition.Child
-          as={Fragment}
-          enter={panelEnterStyle}
-          enterFrom={panelEnterFromStyle}
-          enterTo={panelEnterToStyle}
-          leave={panelLeaveStyle}
-          leaveFrom={panelLeaveFromStyle}
-          leaveTo={panelLeaveToStyle}
-        >
+    <Dialog {...moreProps} onClose={handleBackdropClose}>
+      <Transition.Child
+        as={"div"}
+        enter={panelEnterStyle}
+        enterFrom={panelEnterFromStyle}
+        enterTo={panelEnterToStyle}
+        leave={panelLeaveStyle}
+        leaveFrom={panelLeaveFromStyle}
+        leaveTo={panelLeaveToStyle}
+        className={alertPanelBorderStyle}
+      >
+        <div className={alertPanelBounderStyle}>
           <HeadlessUIDialog.Panel className={alertPanelStyle}>
             <UseIcon icon={icon} type={type} />
 
@@ -92,12 +121,21 @@ function Alert(props: AlertProps) {
               confirmType={confirmType}
               showAdditional={showAdditional}
               showCancel={showCancel}
+              disabledAdditional={disabledAdditional}
+              disabledCancel={disabledCancel}
+              disabledConfirm={disabledConfirm}
+              onClose={onClose}
             />
           </HeadlessUIDialog.Panel>
-        </Transition.Child>
-      </div>
+        </div>
+      </Transition.Child>
     </Dialog>
   );
 }
 
-export { type AlertProps, Alert };
+export {
+  type AlertProps,
+  type AlertSuccessCallbackResult,
+  type AlertFailCallbackReason,
+  Alert,
+};

@@ -2,19 +2,30 @@ import { ComplexStyleRule, style, styleVariants } from "@vanilla-extract/css";
 import { StatusType } from "../types";
 
 const alertPanelBorderStyle = style({
-  display: "flex",
-  minHeight: "100%",
-  alignItems: "center",
-  justifyContent: "center",
-  boxSizing: "border-box",
-  padding: "16px",
+  width: "100%",
+  height: "100%",
   textAlign: "center",
+  overflowX: "hidden",
+  overflowY: "auto",
+});
+
+const alertPanelBounderStyle = style({
+  width: "100%",
+  minHeight: "100%",
+  height: "fit-content",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  boxSizing: "border-box",
+  paddingTop: "19px",
+  paddingBottom: "19px",
 });
 
 const alertPanelStyle = style({
   width: "100%",
   maxWidth: "270px",
-  maxHeight: "inherit",
+  // height: "fit-content",
+  // maxHeight: "fit-content",
   backgroundColor: "#ffffffD1",
   backgroundBlendMode: "color-dodge",
   borderRadius: "14px",
@@ -67,7 +78,7 @@ const alertPanelTextBorderStyle = style({
 
 const panelEnterStyle = style({
   transitionTimingFunction: "ease-out",
-  transitionDuration: "300ms",
+  transitionDuration: "200ms",
 });
 
 const panelEnterFromStyle = style({
@@ -133,6 +144,19 @@ const alertActionButtonStyle = style({
   borderTopStyle: "solid",
   borderColor: "#3C3C4321",
   userSelect: "none",
+  position: "relative",
+});
+
+const alertActionButtonContentSpanStyle = style({
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  alignItems: "center",
+  selectors: {
+    ["&.disabled"]: {
+      opacity: "0.3",
+    },
+  },
 });
 
 const alertActionConfirmButtonStyle = style({
@@ -171,6 +195,8 @@ const selectNone = style({
 
 export {
   alertPanelBorderStyle,
+  alertPanelBounderStyle,
+  alertActionButtonContentSpanStyle,
   alertPanelStyle,
   alertPanelTitleStyle,
   panelEnterStyle,

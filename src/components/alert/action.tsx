@@ -2,6 +2,7 @@ import { clnc } from "@eqpoqpe/classname-utils";
 import {
   alertActionAdditionalButtonStyle,
   alertActionBaseStyle,
+  alertActionButtonContentSpanStyle,
   alertActionButtonStyle,
   alertActionCancelButtonStyle,
   alertActionConfirmButtonStyle,
@@ -21,6 +22,10 @@ type ActionProps = {} & Pick<
   | "confirmType"
   | "cancelType"
   | "additionalType"
+  | "onClose"
+  | "disabledAdditional"
+  | "disabledCancel"
+  | "disabledConfirm"
 >;
 
 function Action(props: ActionProps) {
@@ -34,7 +39,35 @@ function Action(props: ActionProps) {
     confirmType,
     showAdditional,
     showCancel,
+    disabledAdditional,
+    disabledCancel,
+    disabledConfirm,
+    onClose,
   } = props;
+  const handleConfirmClose = () => {
+    onClose?.({
+      additional: false,
+      backdrop: false,
+      cancel: false,
+      confirm: true,
+    });
+  };
+  const handleCancelClose = () => {
+    onClose?.({
+      additional: false,
+      backdrop: false,
+      cancel: true,
+      confirm: false,
+    });
+  };
+  const handleAdditionalClose = () => {
+    onClose?.({
+      additional: true,
+      backdrop: false,
+      cancel: false,
+      confirm: false,
+    });
+  };
 
   if (disturb) {
     return (
@@ -45,9 +78,19 @@ function Action(props: ActionProps) {
             alertActionButtonStyle,
             alertActionConfirmButtonStyle,
             textType[confirmType ?? "success"],
+            disabledConfirm ? "disabled" : "",
           ])}
+          onClick={handleConfirmClose}
+          disabled={disabledConfirm}
         >
-          {confirmText}
+          <span
+            className={clnc([
+              alertActionButtonContentSpanStyle,
+              disabledConfirm ? "disabled" : "",
+            ])}
+          >
+            {confirmText}
+          </span>
         </button>
         {showCancel && (
           <button
@@ -56,9 +99,19 @@ function Action(props: ActionProps) {
               alertActionButtonStyle,
               alertActionCancelButtonStyle,
               textType[cancelType ?? "success"],
+              disabledCancel ? "disabled" : "",
             ])}
+            onClick={handleCancelClose}
+            disabled={disabledCancel}
           >
-            {cancelText}
+            <span
+              className={clnc([
+                alertActionButtonContentSpanStyle,
+                disabledCancel ? "disabled" : "",
+              ])}
+            >
+              {cancelText}
+            </span>
           </button>
         )}
         {showAdditional && showCancel && (
@@ -68,9 +121,19 @@ function Action(props: ActionProps) {
               alertActionButtonStyle,
               alertActionAdditionalButtonStyle,
               textType[additionalType ?? "success"],
+              disabledAdditional ? "disabled" : "",
             ])}
+            onClick={handleAdditionalClose}
+            disabled={disabledAdditional}
           >
-            {additionalText}
+            <span
+              className={clnc([
+                alertActionButtonContentSpanStyle,
+                disabledAdditional ? "disabled" : "",
+              ])}
+            >
+              {additionalText}
+            </span>
           </button>
         )}
       </div>
