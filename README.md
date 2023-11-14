@@ -18,7 +18,7 @@
   </sup>
   <br />
   <br />
-  <pre>npm i <a href="https://www.npmjs.com/package/@quiztrack/zenui">Zenui</a></pre>
+  <pre>npm i <a href="https://www.npmjs.com/package/@quiztrack/zenui">@quiztrack/zenui</a></pre>
   <br />
   <br />
   <br />
