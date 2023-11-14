@@ -5,6 +5,7 @@ import {
   alertActionButtonStyle,
   alertActionCancelButtonStyle,
   alertActionConfirmButtonStyle,
+  textType,
 } from "./style.css";
 import { AlertProps } from ".";
 
@@ -14,6 +15,7 @@ type ActionProps = {} & Pick<
   | "confirmText"
   | "cancelText"
   | "additionalText"
+  | "userSelect"
   | "showCancel"
   | "showAdditional"
   | "confirmType"
@@ -42,6 +44,7 @@ function Action(props: ActionProps) {
           className={clnc([
             alertActionButtonStyle,
             alertActionConfirmButtonStyle,
+            textType[confirmType ?? "success"],
           ])}
         >
           {confirmText}
@@ -52,17 +55,19 @@ function Action(props: ActionProps) {
             className={clnc([
               alertActionButtonStyle,
               alertActionCancelButtonStyle,
+              textType[cancelType ?? "success"],
             ])}
           >
             {cancelText}
           </button>
         )}
-        {showAdditional && (
+        {showAdditional && showCancel && (
           <button
             type="button"
             className={clnc([
               alertActionButtonStyle,
               alertActionAdditionalButtonStyle,
+              textType[additionalType ?? "success"],
             ])}
           >
             {additionalText}

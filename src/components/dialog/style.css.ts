@@ -13,7 +13,7 @@ const backdropBaseStyle = style({
 const dialogPanelBaseStyle = style({
   position: "fixed",
   inset: "0",
-  overflowY: "hidden",
+  overflowY: "auto",
 });
 
 const backdropEnterStyle = style({

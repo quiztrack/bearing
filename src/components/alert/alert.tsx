@@ -44,7 +44,7 @@ function Alert(props: AlertProps) {
     icon,
     contents,
     disturb = true,
-    userSelect,
+    userSelect = "select-none",
     onClose,
     additionalText,
     additionalType,
@@ -79,7 +79,7 @@ function Alert(props: AlertProps) {
               >
                 {title}
               </HeadlessUIDialog.Title>
-              <Message contents={contents} />
+              <Message contents={contents} userSelect={userSelect} />
             </div>
 
             <Action
@@ -89,7 +89,7 @@ function Alert(props: AlertProps) {
               cancelText={cancelText}
               cancelType={cancelType}
               confirmText={confirmText}
-              confirmType={cancelType}
+              confirmType={confirmType}
               showAdditional={showAdditional}
               showCancel={showCancel}
             />
