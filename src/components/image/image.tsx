@@ -15,7 +15,6 @@ type ImageProps = {
    */
   fallback?: ReactNode;
 } & ImgHTMLAttributes<HTMLImageElement>;
-
 type ImageLoadStatus = "loading" | "loaded" | "error";
 
 const Image = forwardRef<HTMLImageElement, ImageProps>(function (props, ref) {
@@ -42,9 +41,7 @@ const Image = forwardRef<HTMLImageElement, ImageProps>(function (props, ref) {
 
   if (imageLoadStatus === "loading" && fallback) {
     return fallback;
-  }
-
-  if (imageLoadStatus === "loaded") {
+  } else if (imageLoadStatus === "loaded") {
     return <img {...moreProps} src={src} ref={ref} />;
   }
 });
