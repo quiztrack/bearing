@@ -27,7 +27,7 @@ const alertPanelStyle = style({
   width: "100%",
   maxWidth: "270px",
   height: "fit-content",
-  backgroundColor: "#ffffffD1",
+  backgroundColor: "#ffffffbf",
   backgroundBlendMode: "color-dodge",
   borderRadius: "14px",
   boxSizing: "border-box",
@@ -92,7 +92,7 @@ const panelEnterToStyle = style({
 
 const panelLeaveStyle = style({
   transitionTimingFunction: "ease-in",
-  transitionDuration: "200ms",
+  transitionDuration: "100ms",
 });
 
 const panelLeaveFromStyle = style({

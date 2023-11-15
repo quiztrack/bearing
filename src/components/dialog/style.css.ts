@@ -11,7 +11,7 @@ const backdropBaseStyle = style({
 });
 
 const backdropBackgroundStyle = style({
-  backgroundColor: "#00000099",
+  backgroundColor: "#00000066",
 });
 
 const dialogPanelBaseStyle = style({
@@ -22,7 +22,7 @@ const dialogPanelBaseStyle = style({
 
 const backdropEnterStyle = style({
   transitionTimingFunction: "ease-out",
-  transitionDuration: "300ms",
+  transitionDuration: "200ms",
 });
 
 const backdropEnterFromStyle = style({
@@ -35,7 +35,7 @@ const backdropEnterToStyle = style({
 
 const backdropLeaveStyle = style({
   transitionTimingFunction: "ease-in",
-  transitionDuration: "200ms",
+  transitionDuration: "100ms",
 });
 
 const backdropLeaveFromStyle = style({
