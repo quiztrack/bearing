@@ -2,6 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 const dialogBaseStyle = style({
   position: "relative",
+  zIndex: 3000,
 });
 
 const backdropBaseStyle = style({

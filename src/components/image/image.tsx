@@ -20,9 +20,6 @@ import { FallbackBorder } from "./fallback-border";
 
 type ImageProps = {
   src: string;
-  /**
-   * if set fallback, component will default enabled display after at loaded
-   */
   fallback?: ReactNode;
 } & ImgHTMLAttributes<HTMLImageElement>;
 type ImageLoadStatus = "loading" | "loaded" | "error";
@@ -31,17 +28,6 @@ function Image(props: ImageProps) {
   const { fallback, ...moreProps } = props;
   const [sourceLoadStatus, setSourceLoadStatus] =
     useState<ImageLoadStatus>("loading");
-  const renderImageElement = (
-    <RenderImageElement
-      {...moreProps}
-      onDecode={() => {
-        setSourceLoadStatus("loaded");
-      }}
-      onError={() => {
-        setSourceLoadStatus("error");
-      }}
-    />
-  );
 
   return (
     <div>
@@ -57,9 +43,7 @@ function Image(props: ImageProps) {
         leave={imageLeaveStyle}
         leaveFrom={imageLeaveFromStyle}
         leaveTo={imageLeaveToStyle}
-      >
-        {renderImageElement}
-      </Transition>
+      ></Transition>
     </div>
   );
 }
