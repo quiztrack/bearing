@@ -1,5 +1,5 @@
 import { Dialog as HeadlessUIDialog, Transition } from "@headlessui/react";
-import { Fragment, PropsWithChildren } from "react";
+import { Fragment, MutableRefObject, PropsWithChildren } from "react";
 import {
   backdropBaseStyle,
   backdropEnterFromStyle,
@@ -17,12 +17,14 @@ import { clnc } from "@eqpoqpe/classname-utils";
 type DialogProps = PropsWithChildren<{
   on: boolean;
   backdrop?: boolean;
+  initialFocus?: MutableRefObject<HTMLElement | null>;
   backdropBackdround?: string;
   onClose?: () => void;
 }>;
 
 function Dialog(props: DialogProps) {
-  const { on, children, backdrop, backdropBackdround, onClose } = props;
+  const { on, children, backdrop, initialFocus, backdropBackdround, onClose } =
+    props;
   const handleBackdropClose = () => {
     if (backdrop) onClose?.();
   };
@@ -31,6 +33,7 @@ function Dialog(props: DialogProps) {
     <Transition appear show={on} as={Fragment}>
       <HeadlessUIDialog
         as="div"
+        initialFocus={initialFocus}
         className={dialogBaseStyle}
         onClose={handleBackdropClose}
       >

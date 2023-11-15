@@ -12,8 +12,9 @@ import {
   panelLeaveStyle,
   panelLeaveToStyle,
   selectNone,
+  textType,
 } from "./style.css";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { Dialog, DialogProps } from "../dialog";
 import { UseIcon } from "./use-icon";
 import { Action } from "./action";
@@ -74,6 +75,7 @@ function Alert(props: AlertProps) {
     disabledCancel,
     ...moreProps
   } = props;
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
   const handleBackdropClose = () => {
     onClose?.({
       additional: false,
@@ -84,7 +86,11 @@ function Alert(props: AlertProps) {
   };
 
   return (
-    <Dialog {...moreProps} onClose={handleBackdropClose}>
+    <Dialog
+      {...moreProps}
+      initialFocus={titleRef}
+      onClose={handleBackdropClose}
+    >
       <Transition.Child
         as={"div"}
         enter={panelEnterStyle}
@@ -103,6 +109,7 @@ function Alert(props: AlertProps) {
               <HeadlessUIDialog.Title
                 as="h3"
                 className={clnc([alertPanelTitleStyle, selectNone])}
+                ref={titleRef}
               >
                 {title}
               </HeadlessUIDialog.Title>

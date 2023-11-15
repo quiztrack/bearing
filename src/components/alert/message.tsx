@@ -6,10 +6,17 @@ import {
   selectNone,
   selectText,
 } from "./style.css";
-import { isValidElement } from "react";
+import { Key, ReactNode, isValidElement } from "react";
 
 type MessageProps = Pick<AlertProps, "contents" | "userSelect">;
 
+const renderMessageContent = (content?: ReactNode) => {
+  if (isValidElement(content)) {
+    return content;
+  } else {
+    return <p className={dialogPanelMessageContentStyle}>{content}</p>;
+  }
+};
 function Message({ contents, userSelect }: MessageProps) {
   return (
     <div
@@ -18,12 +25,8 @@ function Message({ contents, userSelect }: MessageProps) {
         userSelect === "select-text" ? selectText : selectNone,
       ])}
     >
-      {contents?.map(content => {
-        if (isValidElement(content)) {
-          return content;
-        } else {
-          return <p className={dialogPanelMessageContentStyle}>{content}</p>;
-        }
+      {contents?.map((content, index) => {
+        return <div key={index}>{renderMessageContent(content)}</div>;
       })}
     </div>
   );

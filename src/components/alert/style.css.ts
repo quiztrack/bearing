@@ -7,6 +7,9 @@ const alertPanelBorderStyle = style({
   textAlign: "center",
   overflowX: "hidden",
   overflowY: "auto",
+  "::-webkit-scrollbar": {
+    display: "none",
+  },
 });
 
 const alertPanelBounderStyle = style({
@@ -32,8 +35,6 @@ const alertPanelStyle = style({
   paddingTop: "19px",
   paddingBottom: "0px",
   boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
-  overflowX: "hidden",
-  overflowY: "hidden",
 });
 
 const alertPanelTitleStyle = style({
@@ -124,6 +125,7 @@ const alertActionBaseStyle = style({
 
 const alertActionButtonStyle = style({
   width: "100%",
+  height: "fit-content",
   color: "#007AFF",
   background: "transparent",
   display: "flex",
