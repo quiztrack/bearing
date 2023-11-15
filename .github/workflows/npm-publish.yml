@@ -1,10 +1,8 @@
 name: Node.js Package Test Publish
 
 on:
-  push:
-    branches:
-      - "feature/*"
-      - "!main"
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -29,4 +27,4 @@ jobs:
       - run: pnpm install
       - run: pnpm publish --no-git-checks --access=public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
