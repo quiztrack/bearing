@@ -1,6 +1,6 @@
 {
   "name": "@quiztrack/zenui",
-  "version": "0.0.0-alpha.4",
+  "version": "0.0.0-alpha.5",
   "description": "The solution components for React App.",
   "type": "module",
   "access": "public",
