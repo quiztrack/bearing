@@ -10,6 +10,7 @@ import {
   backdropLeaveToStyle,
   dialogBaseStyle,
   dialogPanelBaseStyle,
+  backdropBackgroundStyle,
 } from "./style.css";
 import { clnc } from "@eqpoqpe/classname-utils";
 
@@ -44,7 +45,8 @@ function Dialog(props: DialogProps) {
         >
           <div
             className={clnc([
-              backdropBackdround ? backdropBackdround : backdropBaseStyle,
+              backdropBaseStyle,
+              backdropBackdround ? backdropBackdround : backdropBackgroundStyle,
             ])}
             aria-hidden="true"
           ></div>

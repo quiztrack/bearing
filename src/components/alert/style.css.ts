@@ -105,6 +105,9 @@ const panelLeaveToStyle = style({
 });
 
 const alertIconBorderStyle = style({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
   paddingTop: "20px",
   paddingLeft: "0px",
   paddingRight: "0px",

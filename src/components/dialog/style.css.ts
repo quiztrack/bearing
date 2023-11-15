@@ -6,9 +6,12 @@ const dialogBaseStyle = style({
 });
 
 const backdropBaseStyle = style({
-  backgroundColor: "#00000099",
   position: "fixed",
   inset: "0",
+});
+
+const backdropBackgroundStyle = style({
+  backgroundColor: "#00000099",
 });
 
 const dialogPanelBaseStyle = style({
@@ -46,6 +49,7 @@ const backdropLeaveToStyle = style({
 export {
   dialogBaseStyle,
   backdropBaseStyle,
+  backdropBackgroundStyle,
   dialogPanelBaseStyle,
   backdropEnterStyle,
   backdropEnterFromStyle,
