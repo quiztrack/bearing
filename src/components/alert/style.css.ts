@@ -27,7 +27,7 @@ const alertPanelStyle = style({
   width: "100%",
   maxWidth: "270px",
   height: "fit-content",
-  backgroundColor: "#ffffff87",
+  backgroundColor: "#ffffffa1",
   backgroundBlendMode: "color-dodge",
   borderRadius: "14px",
   boxSizing: "border-box",
