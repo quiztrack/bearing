@@ -12,9 +12,8 @@ import {
   panelLeaveStyle,
   panelLeaveToStyle,
   selectNone,
-  textType,
 } from "./style.css";
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { ReactNode, useRef } from "react";
 import { Dialog, DialogProps } from "../dialog";
 import { UseIcon } from "./use-icon";
 import { Action } from "./action";
