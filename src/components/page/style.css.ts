@@ -3,6 +3,7 @@ import { style, styleVariants } from "@vanilla-extract/css";
 const pageStyle = style({
   width: "100%",
   height: "100%",
+  display: "flex",
 });
 
 const pageHiddenX = style({
