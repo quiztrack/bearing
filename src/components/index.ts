@@ -1,3 +1,3 @@
 export * from "./alert";
 export * from "./page";
-export * from "./segmented-controls";
+export * from "./segmented-control";

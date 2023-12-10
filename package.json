@@ -1,31 +1,35 @@
 {
   "name": "@quiztrack/zenui",
-  "version": "0.0.0-alpha.10",
+  "version": "0.0.1-alpha.2",
   "description": "The solution components for React App.",
   "type": "module",
   "access": "public",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "typesVersions": {
     "*": {
+      "components": [
+        "./dist/components/index.d.ts"
+      ],
       "kit": [
         "./dist/kit/index.d.ts"
       ]
     }
   },
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+    "./components": {
+      "import": "./dist/components/index.js",
+      "require": "./dist/components/index.cjs",
+      "types": "./dist/components/index.d.ts"
     },
     "./kit": {
       "import": "./dist/kit/index.js",
+      "require": "./dist/kit/index.cjs",
       "types": "./dist/kit/index.d.ts"
     },
-    "./style.css": "./dist/index.css"
+    "./style.css": "./dist/components/index.css"
   },
   "scripts": {
     "build": "tsup",
+    "dev": "tsup --watch",
     "test": "echo \"Error: no test specified\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
@@ -35,7 +39,8 @@
   "author": "https://github.com/quiztrack",
   "license": "MIT",
   "files": [
-    "dist"
+    "./src",
+    "./dist"
   ],
   "devDependencies": {
     "@radix-ui/react-avatar": "^1.0.4",

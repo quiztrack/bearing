@@ -1,5 +1,5 @@
-function SegmentedControls() {
+function SegmentedControl() {
   return <div></div>;
 }
 
-export { SegmentedControls };
+export { SegmentedControl };

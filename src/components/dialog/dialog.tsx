@@ -26,12 +26,12 @@ type DialogProps = PropsWithChildren<{
   on: boolean;
   backdrop?: boolean;
   initialFocus?: MutableRefObject<HTMLElement | null>;
-  backdropBackdround?: string;
+  backdropBackground?: string;
   onClose?: () => void;
 }>;
 
 function Dialog(props: DialogProps) {
-  const { on, children, backdrop, initialFocus, backdropBackdround, onClose } =
+  const { on, children, backdrop, initialFocus, backdropBackground, onClose } =
     props;
   const handleBackdropClose = () => {
     if (backdrop) onClose?.();
@@ -57,7 +57,7 @@ function Dialog(props: DialogProps) {
           <div
             className={clnc([
               backdropBaseStyle,
-              backdropBackdround ? backdropBackdround : backdropBackgroundStyle,
+              backdropBackground ? backdropBackground : backdropBackgroundStyle,
             ])}
             aria-hidden="true"
           ></div>
