@@ -5,7 +5,7 @@
     <br/>
     🧘‍♀️
     <br />
-    zenui
+    peek
     <br />
     <br />
     <br />
@@ -20,7 +20,7 @@
   </sup>
   <br />
   <br />
-  <pre>npm i <a href="https://www.npmjs.com/package/@quiztrack/zenui">@quiztrack/zenui</a></pre>
+  <pre>npm i <a href="https://www.npmjs.com/package/@quiztrack/zenui">@quiztrack/peek</a></pre>
   <br />
   <br />
   <br />
