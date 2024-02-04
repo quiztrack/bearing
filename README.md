@@ -20,7 +20,7 @@
   </sup>
   <br />
   <br />
-  <pre>npm i <a href="https://www.npmjs.com/package/@quiztrack/zenui">@quiztrack/peek</a></pre>
+  <pre>npm i <a href="https://www.npmjs.com/package/@quiztrack/zenui">@peek-ui/peek</a></pre>
   <br />
   <br />
   <br />
