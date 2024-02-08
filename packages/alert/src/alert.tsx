@@ -14,7 +14,7 @@ import {
   selectNone,
 } from "./style.css";
 import { ReactNode, useRef } from "react";
-import { Dialog, DialogProps } from "../dialog";
+import { Dialog, DialogProps } from "@peek-ui/dialog";
 import { UseIcon } from "./use-icon";
 import { Action } from "./action";
 import { Message } from "./message";

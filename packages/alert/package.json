@@ -1,0 +1,22 @@
+{
+  "name": "@peek-ui/alert",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@eqpoqpe/classname-utils": "^0.1.1",
+    "@peek-ui/dialog": "workspace:*",
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  }
+}

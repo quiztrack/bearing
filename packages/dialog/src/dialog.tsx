@@ -1,10 +1,10 @@
 // Dialog
 //
-// copyright (c) 2023 Ryan Martin
+// Copyright (c) 2023 Ryan Martin
 
-/* -----------------------------------------------------------------------
+/* --------------------------------------------------------------------------
  *  base component
- * ---------------------------------------------------------------------*/
+ * ------------------------------------------------------------------------*/
 
 import { Dialog as HeadlessUIDialog, Transition } from "@headlessui/react";
 import { Fragment, MutableRefObject, PropsWithChildren } from "react";

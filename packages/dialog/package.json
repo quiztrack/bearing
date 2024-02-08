@@ -1,0 +1,21 @@
+{
+  "name": "@peek-ui/dialog",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vanilla-extract/css": "^1.14.1",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  }
+}
