@@ -28,7 +28,7 @@ type ActionProps = {} & Pick<
   | "disabledConfirm"
 >;
 
-function Action(props: ActionProps) {
+export function Action(props: ActionProps) {
   const {
     disturb,
     additionalText,
@@ -142,5 +142,3 @@ function Action(props: ActionProps) {
     return undefined;
   }
 }
-
-export { Action };

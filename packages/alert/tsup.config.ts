@@ -5,7 +5,7 @@ import { processCss } from "@pretzel-ui/tsup";
 export default defineConfig({
   esbuildPlugins: [
     vanillaExtractPlugin({
-      identifiers: ({ hash }) => `pretzel_ui_dialog_${hash}`,
+      identifiers: ({ hash }) => `pretzel_ui_alert_${hash}`,
       processCss: processCss,
     }) as unknown as any,
   ],

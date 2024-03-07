@@ -1,5 +1,5 @@
 import { ComplexStyleRule, style, styleVariants } from "@vanilla-extract/css";
-import { StatusType } from "../types";
+import { StatusType } from "./types";
 
 const alertPanelBorderStyle = style({
   width: "100%",
@@ -177,7 +177,7 @@ const alertActionAdditionalButtonStyle = style({
 const textType = styleVariants<{
   [key in StatusType]: ComplexStyleRule;
 }>({
-  faild: {
+  fail: {
     color: "#FF3B30",
   },
   success: {

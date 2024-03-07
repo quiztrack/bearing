@@ -14,24 +14,24 @@ import {
   selectNone,
 } from "./style.css";
 import { ReactNode, useRef } from "react";
-import { Dialog, DialogProps } from "@peek-ui/dialog";
+import { Dialog, DialogProps } from "@pretzel-ui/dialog";
 import { UseIcon } from "./use-icon";
 import { Action } from "./action";
 import { Message } from "./message";
 import { clnc } from "@eqpoqpe/classname-utils";
 import {
-  DialogBaseFaildCallbackReason,
+  DialogBaseFailCallbackReason,
   DialogBaseSuccessCallbackResult,
   StatusType,
-} from "../types";
+} from "./types";
 
-type AlertSuccessCallbackResult = {
+export type AlertSuccessCallbackResult = {
   confirm: boolean;
   cancel: boolean;
   additional: boolean;
 } & DialogBaseSuccessCallbackResult;
-type AlertFailCallbackReason = {} & DialogBaseFaildCallbackReason;
-type AlertProps = {
+export type AlertFailCallbackReason = {} & DialogBaseFailCallbackReason;
+export type AlertProps = {
   type?: "tips" | "help" | "question" | "none";
   disturb?: boolean;
   icon?: ReactNode;
@@ -52,7 +52,7 @@ type AlertProps = {
   onClose?: (result: AlertSuccessCallbackResult) => void;
 } & Omit<DialogProps, "children" | "onClose">;
 
-function Alert(props: AlertProps) {
+export function Alert(props: AlertProps) {
   const {
     title,
     type,
@@ -136,10 +136,3 @@ function Alert(props: AlertProps) {
     </Dialog>
   );
 }
-
-export {
-  type AlertProps,
-  type AlertSuccessCallbackResult,
-  type AlertFailCallbackReason,
-  Alert,
-};

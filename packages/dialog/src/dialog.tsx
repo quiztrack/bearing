@@ -22,7 +22,7 @@ import {
 } from "./style.css";
 import { clnc } from "@eqpoqpe/classname-utils";
 
-type DialogProps = PropsWithChildren<{
+export type DialogProps = PropsWithChildren<{
   on: boolean;
   backdrop?: boolean;
   initialFocus?: MutableRefObject<HTMLElement | null>;
@@ -30,7 +30,7 @@ type DialogProps = PropsWithChildren<{
   onClose?: () => void;
 }>;
 
-function Dialog(props: DialogProps) {
+export function Dialog(props: DialogProps) {
   const { on, children, backdrop, initialFocus, backdropBackground, onClose } =
     props;
   const handleBackdropClose = () => {
@@ -68,5 +68,3 @@ function Dialog(props: DialogProps) {
     </Transition>
   );
 }
-
-export { type DialogProps, Dialog };
