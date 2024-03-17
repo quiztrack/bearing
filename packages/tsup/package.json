@@ -1,6 +1,6 @@
 {
   "name": "@pretzel-ui/tsup",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "",
   "exports": {
@@ -20,10 +20,10 @@
   "license": "MIT",
   "dependencies": {
     "autoprefixer": "^10.4.17",
-    "postcss": "^8.4.33"
+    "postcss": "^8.4.33",
+    "tsup": "^8.0.2"
   },
   "devDependencies": {
-    "tsup": "^8.0.2",
     "typescript": "^5.3.3"
   },
   "tsup": {

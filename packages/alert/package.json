@@ -29,7 +29,7 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@pretzel-ui/tsup": "workspace:0.0.1",
+    "@pretzel-ui/tsup": "workspace:0.0.2",
     "@types/react": "^18.2.64",
     "@vanilla-extract/css": "^1.14.1",
     "@vanilla-extract/esbuild-plugin": "^2.3.5",
