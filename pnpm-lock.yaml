@@ -33,7 +33,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1(react@18.2.0)
       '@pretzel-ui/dialog':
-        specifier: workspace:0.0.2
+        specifier: workspace:0.0.3
         version: link:../dialog
       react:
         specifier: ^18.2.0
