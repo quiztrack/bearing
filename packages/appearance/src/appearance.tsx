@@ -30,6 +30,8 @@ export function AppearanceProvider(props: AppearanceProviderProps) {
       if (appearanceTheme === "system" || appearanceTheme === null) {
         if (isDark) document.documentElement.setAttribute("data-theme", "dark");
         else document.documentElement.setAttribute("data-theme", "light");
+
+        setTheme(isDark ? "dark" : "light");
       }
     };
 

@@ -30,12 +30,15 @@ export type AlertSuccessCallbackResult = {
   cancel: boolean;
   additional: boolean;
 } & DialogBaseSuccessCallbackResult;
+export type AlertResultCallbackFn = (
+  result: AlertSuccessCallbackResult
+) => void;
 export type AlertFailCallbackReason = {} & DialogBaseFailCallbackReason;
 export type AlertProps = {
   type?: "tips" | "help" | "question" | "none";
   disturb?: boolean;
   icon?: ReactNode;
-  title?: string;
+  title?: ReactNode;
   contents?: ReactNode[];
   userSelect?: "select-none" | "select-text";
   confirmText?: ReactNode;
@@ -49,7 +52,7 @@ export type AlertProps = {
   disabledConfirm?: boolean;
   disabledCancel?: boolean;
   disabledAdditional?: boolean;
-  onClose?: (result: AlertSuccessCallbackResult) => void;
+  onClose?: AlertResultCallbackFn;
 } & Omit<DialogProps, "children" | "onClose">;
 
 export function Alert(props: AlertProps) {
