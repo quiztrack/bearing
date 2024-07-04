@@ -11,7 +11,7 @@ export type AppearanceContext = {
   setTheme: (theme: AppearanceContext["theme"]) => void;
 };
 export type AppearanceProviderProps = PropsWithChildren<
-  { prefersToken: string } & Pick<AppearanceContext, "theme">
+  { prefersToken: string, dataName: string } & Pick<AppearanceContext, "theme">
 >;
 
 const appearanceContext = createContext<AppearanceContext | undefined>(
@@ -19,7 +19,7 @@ const appearanceContext = createContext<AppearanceContext | undefined>(
 );
 
 export function AppearanceProvider(props: AppearanceProviderProps) {
-  const { children, theme = "system", prefersToken } = props;
+  const { children, theme = "system", dataName = "data-theme", prefersToken } = props;
   const [currTheme, setTheme] = useState(theme);
 
   useEffect(() => {
@@ -28,8 +28,8 @@ export function AppearanceProvider(props: AppearanceProviderProps) {
       const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
       if (appearanceTheme === "system" || appearanceTheme === null) {
-        if (isDark) document.documentElement.setAttribute("data-theme", "dark");
-        else document.documentElement.setAttribute("data-theme", "light");
+        if (isDark) document.documentElement.setAttribute(dataName, "dark");
+        else document.documentElement.setAttribute(dataName, "light");
 
         setTheme(isDark ? "dark" : "light");
       }
